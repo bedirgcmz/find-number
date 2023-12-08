@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #f4f0bb;
+    color: #43291f;
+}
+header {
+    background-color: #226f54;
+    color: #fff;
+}
+main {
+    max-width: 700px;
+    margin: auto;
+}
+.level-info ul {
+    list-style-type: disclosure-closed;
+}
+.level-info ul li {
+    background-color: #276c77;
+    color: #fff;
+    padding: 3px 6px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+
+}
+.select-levels select {
+    background-color: #f4f0bb;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 1px solid #c5c3c3cf;
+}
+.game-numbers-container {
+    width: 350px;
+}
+.number {
+    /* width: 24px; */
+    height: 50px;
+    text-align: center;
+    font-size: 1.7rem;
+    line-height: 45px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #226f54;
+    border:2px solid #fff;
+}
+.start-game-button {
+    border: 2px solid #226f54;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background-color: #226f54;
+    color: #fff;
+    box-shadow: #7c6d6d 0px 1px 4px;
+
+}
+.display-guess-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrong {
+    background-color: #ae2012;
+}
+.correct {
+background-color: #2ec4b6;
+}
+.popup-container {
+    background-color: #0000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 9999;
+}
+.popup{
+    padding: 20px 48px;
+    text-align: center;
+    border-radius: 8px;
+}
+.win {
+    background-color: #2a9d8f;
+}
+.lost {
+    background-color: rgb(157, 42, 42);
+}
+.popup h2 {
+    margin-top: 0px;
+    color: #fff;
+}
+.popup-background{
+    background-color: #00000094;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.play-again {
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: #1579cc;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.436) 0px 3px 8px;
+}
+.play-again:hover {
+    opacity: 0.8;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .select-levels {
+        flex-direction: column;
+        width: 87%;
+        margin: auto;
+    }
+}
