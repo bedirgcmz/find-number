@@ -85,11 +85,13 @@ const userAnswer = (clickedNumber) => {
         Swal.fire({
             title: "Great job!",
             text: "Today is your lucky day my friend, you won.",
+            color: "#2ec4b6",
             imageUrl: "./images/winn.gif",
             imageWidth: 300,
             imageHeight: 200,
             imageAlt: "Custom image"
           });
+          startGameButton.textContent = "Play Again";
         //   clickedElement.classList.add('wrong'); 
             for (let index = 1; index <= selectedLevel; index++) {
                 document.getElementById(`number${index}`).disabled = true
@@ -105,11 +107,13 @@ const userAnswer = (clickedNumber) => {
           Swal.fire({
             title: "Don't worry!",
             text: "You can play again",
+            color: "#d90429",
             imageUrl: "./images/lost.gif",
             imageWidth: 300,
             imageHeight: 200,
             imageAlt: "Custom image"
           });
+          startGameButton.textContent = "Play Again";
         } 
     } else {
         alert("You have already pressed this number")
