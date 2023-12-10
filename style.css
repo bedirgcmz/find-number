@@ -15,13 +15,17 @@ main {
     max-width: 700px;
     margin: auto;
 }
+.level-info {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 12px;
+}
 .level-info ul {
     list-style-type: disclosure-closed;
 }
 .level-info ul li {
     background-color: #276c77;
     color: #fff;
-    padding: 3px 6px;
+    padding: 3px 24px;
     border-radius: 6px;
     margin-bottom: 4px;
 
@@ -30,12 +34,13 @@ main {
     background-color: #f4f0bb;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border: 1px solid #c5c3c3cf;
+    height: 50px;
+    width: 345px;
 }
 .game-numbers-container {
     width: 350px;
 }
 .number {
-    /* width: 24px; */
     height: 50px;
     text-align: center;
     font-size: 1.7rem;
@@ -44,14 +49,26 @@ main {
     color: #fff;
     background-color: #226f54;
     border:2px solid #fff;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    border-radius: 10px;
+    margin-bottom: 3px;
+    margin-right: 2px;
+    width: 56px;
+    transition: all ease 0.4s;
+}
+.number:hover {
+    transform: scale(1.24);
 }
 .start-game-button {
+    width: 100%;
     border: 2px solid #226f54;
-    padding: 3px 8px;
-    border-radius: 6px;
+    padding: 6px 12px;
+    border-radius: 10px;
     background-color: #226f54;
     color: #fff;
-    box-shadow: #7c6d6d 0px 1px 4px;
+    font-size: 1.2rem;
+    margin-top: 16px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 
 }
 .display-guess-number {
@@ -60,10 +77,10 @@ main {
     justify-content: center;
 }
 .wrong {
-    background-color: #ae2012;
+    background-color: #ff5847;
 }
 .correct {
-background-color: #2ec4b6;
+background-color: #43ff00;
 }
 .popup-container {
     background-color: #0000;
@@ -115,7 +132,6 @@ background-color: #2ec4b6;
 .play-again:hover {
     opacity: 0.8;
 }
-
 
 @media only screen and (max-width: 500px) {
     .select-levels {

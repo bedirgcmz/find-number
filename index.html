@@ -30,21 +30,27 @@
                     <li><b>Level 4:</b> 36 Number</li>
                 </ul>
             </div>
-            <div class="select-levels p-2 d-flex justify-content-between align-items-center">
-                <select class="form-select level-options m-2" aria-label="Default select example">
-                    <option >Please select a level</option>
-                    <option value="12">Level 1</option>
-                    <option value="18">Level 2</option>
-                    <option value="24">Level 3</option>
-                    <option value="36">Level 4</option>
-                  </select>
-                  <select class="form-select guess-options m-2" aria-label="Default select example">
-                    <option >How many guesses do you want?</option>
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="7">7</option>
-                    <option value="9">9</option>
-                  </select>
+            <div class="select-levels mt-3 d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1 p-2">Game level</p>
+                    <select class="form-select level-options" aria-label="Default select example">
+                        <option >Please select a level</option>
+                        <option value="12">Level 1</option>
+                        <option value="18">Level 2</option>
+                        <option value="24">Level 3</option>
+                        <option value="36">Level 4</option>
+                      </select>
+                </div>
+                <div>
+                    <p class="mb-1 p-2">Your right to guess</p>
+                    <select class="form-select guess-options" aria-label="Default select example">
+                      <option >How many guesses do you want?</option>
+                      <option value="3">3</option>
+                      <option value="5">5</option>
+                      <option value="7">7</option>
+                      <option value="9">9</option>
+                    </select>
+                </div>
             </div>
         </section>
         <!-- Game container -->

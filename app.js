@@ -24,12 +24,6 @@ startGameButton.addEventListener("click", () => {
     selectedLevel = parseInt(levelOptions.value);
     selectedGuessNumber = parseInt(guessOptions.value);
 if (levelOptions.value == "Please select a level" || guessOptions.value == "How many guesses do you want?") {
-    // alert("Please select LEVEL and GUESS NUMBER first")
-    // Swal.fire({
-    //     title: "Are you sure you're ready for the game?!",
-    //     text: "Please select LEVEL and GUESS NUMBER first!",
-    //     icon: "warning"
-    //   });
       Swal.fire({
         title: "Are you sure you're ready for the game?!",
         text: "Please select LEVEL and GUESS NUMBER first!",
@@ -55,7 +49,7 @@ if (levelOptions.value == "Please select a level" || guessOptions.value == "How 
         hiddenNumber = Math.floor(Math.random() * selectedLevel) + 1;
         for (let index = 1; index <= levelOptions.value; index++) {
             gameNumberContainer.innerHTML += `
-            <button id=${`number${index}`} onclick="userAnswer(${index})" class="col-2 number">${index}</button>
+            <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
             `
         }; 
         displayGuessNumber.innerHTML = `You have  <b class="fs-3 p-2">${selectedGuessNumber}</b>  guesses to find the hidden number.`
@@ -64,7 +58,7 @@ if (levelOptions.value == "Please select a level" || guessOptions.value == "How 
         selectedGuessNumber = 5;
         for (let index = 1; index <= levelNumbers[1]; index++) {
             gameNumberContainer.innerHTML += `
-            <button id=${`number${index}`} onclick="userAnswer(${index})" class="col-2 number">${index}</button>
+            <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
             `
         }; 
         displayGuessNumber.innerHTML = `You have  <b class="fs-3 p-2">${selectedGuessNumber}</b>  guesses to find the hidden number.`
