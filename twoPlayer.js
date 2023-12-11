@@ -29,9 +29,13 @@ let numberOfClicks;
 const setUserNickname = () => {
   if (player1Nickname.value != "") {
     document.querySelector(".player1").textContent = player1Nickname.value;
+  } else {
+    document.querySelector(".player1").textContent = "Lion";
   }
   if (player2Nickname.value != "") {
-    document.querySelector(".player2").textContent = player2Nickname.value;
+    document.querySelector(".player2.fw-bold").textContent = player2Nickname.value;
+  } else {
+    document.querySelector(".player2.fw-bold").textContent = "Rose";
   }
 };
 
