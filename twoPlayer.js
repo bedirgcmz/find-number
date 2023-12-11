@@ -71,6 +71,15 @@ const playWrongSound = () => {
     console.error("Ses dosyasını çalamıyoruz.");
   }
 };
+const gameOverSound = () => {
+  var audioPlayer = document.getElementById("gameover");
+
+  if (audioPlayer && typeof audioPlayer.play === "function") {
+    audioPlayer.play();
+  } else {
+    console.error("Ses dosyasını çalamıyoruz.");
+  }
+};
 
 /** This function works when you click on the Game button used to start the game. */
 
@@ -196,7 +205,7 @@ const userAnswer = (pClickedNumber) => {
     //This place works when no one wins
     if (firstPlayerPoint == 0 && secondPlayerPoint == 0 && pClickedNumber !== hiddenNumber) {
       clickedElement.classList.add("wrong");
-      playWrongSound();
+      gameOverSound();
       for (let index = 1; index <= selectedLevel; index++) {
         document.getElementById(`number${index}`).disabled = true;
       }
