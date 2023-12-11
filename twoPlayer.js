@@ -42,17 +42,14 @@ const setUserNickname = () => {
 /** Function that gives trophies to the winning player */
 const whoWon = (pNumber) => {
   const trophyElement = document.querySelector(`.player${pNumber} .fa-trophy`);
-  console.log(pNumber);
   if (trophyElement) {
     trophyElement.classList.remove("d-none");
   } else if (pNumber === 3) {
     const player1Trophy = document.querySelector(`.player1 .fa-trophy`);
     const player2Trophy = document.querySelector(`.player2 .fa-trophy`);
-
     if (player1Trophy && !player1Trophy.classList.contains("d-none")) {
       player1Trophy.classList.add("d-none");
     }
-
     if (player2Trophy && !player2Trophy.classList.contains("d-none")) {
       player2Trophy.classList.add("d-none");
     }
@@ -94,7 +91,6 @@ const playGame = () => {
   } else {
     if (levelNumbers.includes(selectedLevel)) {
       hiddenNumber = Math.floor(Math.random() * selectedLevel) + 1;
-      console.log(hiddenNumber);
       for (let index = 1; index <= levelOptions.value; index++) {
         gameNumberContainer.innerHTML += `
             <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
@@ -204,7 +200,6 @@ const userAnswer = (pClickedNumber) => {
 
 const yourTurn = (pNumberOfClicks, pSelectedGuessNumber, pClickedNumber) => {
   if (pSelectedGuessNumber == 0 || pClickedNumber == hiddenNumber) {
-    console.log("bulundu");
     player2Point.classList.remove("your-turn");
     player1Point.classList.remove("your-turn");
     player1Point.style.transform = "scale(1)";
