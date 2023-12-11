@@ -25,55 +25,6 @@ let secondPlayerPoint;
 let numberOfClicks;
 
 /** This function works when you click on the Game button used to start the game. */
-// startGameButton.addEventListener("click", () => {
-//   gameNumberContainer.innerHTML = "";
-//   userAnswers = [];
-//   selectedLevel = parseInt(levelOptions.value);
-//   selectedGuessNumber = parseInt(guessOptions.value);
-//   if (
-//     levelOptions.value == "Please select a level" ||
-//     guessOptions.value == "How many guesses do you want?"
-//   ) {
-//     Swal.fire({
-//       title: "Are you sure you're ready for the game?!",
-//       text: "Please select LEVEL and GUESS NUMBER first!",
-//       icon: "warning",
-//       showClass: {
-//         popup: `
-//             animate__animated
-//             animate__fadeInUp
-//             animate__faster
-//           `,
-//       },
-//       hideClass: {
-//         popup: `
-//             animate__animated
-//             animate__fadeOutDown
-//             animate__faster
-//           `,
-//       },
-//     });
-//   } else {
-//     if (levelNumbers.includes(selectedLevel)) {
-//       hiddenNumber = Math.floor(Math.random() * selectedLevel) + 1;
-//       for (let index = 1; index <= levelOptions.value; index++) {
-//         gameNumberContainer.innerHTML += `
-//             <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
-//             `;
-//       }
-//       displayGuessNumber.innerHTML = `You have  <b class="fs-3 p-2">${selectedGuessNumber}</b>  guesses to find the hidden number.`;
-//     } else {
-//       hiddenNumber = Math.floor(Math.random() * levelNumbers[1]) + 1;
-//       selectedGuessNumber = 5;
-//       for (let index = 1; index <= levelNumbers[1]; index++) {
-//         gameNumberContainer.innerHTML += `
-//             <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
-//             `;
-//       }
-//       displayGuessNumber.innerHTML = `You have  <b class="fs-3 p-2">${selectedGuessNumber}</b>  guesses to find the hidden number.`;
-//     }
-//   }
-// });
 
 const playGame = () => {
   gameNumberContainer.innerHTML = "";
@@ -159,10 +110,7 @@ const userAnswer = (pClickedNumber) => {
 
     if (numberOfClicks % 2 === 0 && secondPlayerPoint > 0) {
       //Player 2 area
-      // secondPlayerPoint--;
-      // selectedGuessNumber--;
       console.log("ikinci oyuncu");
-      // player2Point.innerHTML = secondPlayerPoint;
       userAnswers.push(pClickedNumber);
       if (selectedGuessNumber > 0) {
         if (pClickedNumber === hiddenNumber) {
