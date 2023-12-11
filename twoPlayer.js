@@ -53,6 +53,7 @@ const whoWon = (pNumber) => {
   }
 };
 
+/** Sound effect that will play on correct answer */
 const playCorrectSound = () => {
   var audioPlayer = document.getElementById("correct");
   if (audioPlayer && typeof audioPlayer.play === "function") {
@@ -62,6 +63,7 @@ const playCorrectSound = () => {
   }
 };
 
+/** Sound effect that will play on wrong answer */
 const playWrongSound = () => {
   var audioPlayer = document.getElementById("wrong");
 
@@ -71,6 +73,8 @@ const playWrongSound = () => {
     console.error("Ses dosyasını çalamıyoruz.");
   }
 };
+
+/** Sound effect that will play when no one wins */
 const gameOverSound = () => {
   var audioPlayer = document.getElementById("gameover");
 
@@ -82,7 +86,6 @@ const gameOverSound = () => {
 };
 
 /** This function works when you click on the Game button used to start the game. */
-
 const playGame = () => {
   setUserNickname();
   whoWon(3);
@@ -229,6 +232,7 @@ const userAnswer = (pClickedNumber) => {
   yourTurn(numberOfClicks, selectedGuessNumber, pClickedNumber);
 };
 
+/** Function that creates animation for the player playing */
 const yourTurn = (pNumberOfClicks, pSelectedGuessNumber, pClickedNumber) => {
   if (pSelectedGuessNumber == 0 || pClickedNumber == hiddenNumber) {
     player2Point.classList.remove("your-turn");
@@ -248,12 +252,13 @@ const yourTurn = (pNumberOfClicks, pSelectedGuessNumber, pClickedNumber) => {
   }
 };
 
+/**This fonksiyon created animations  */
 $(document).ready(function () {
   setInterval(function () {
     $(".your-turn").css("transform", "scale(1.4)");
 
     setTimeout(function () {
       $(".your-turn").css("transform", "scale(1)");
-    }, 400); // 1000 milliseconds = 1 second
-  }, 800); // 2000 milliseconds = 2 seconds (bir saniyede büyüme, bir saniyede küçülme)
+    }, 400);
+  }, 800);
 });
