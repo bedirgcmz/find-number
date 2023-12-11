@@ -34,7 +34,25 @@ main {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border: 1px solid #c5c3c3cf;
   height: 50px;
-  width: 345px;
+  width: 170px;
+}
+.get-users-names ::placeholder {
+  color: #dcd8a6;
+  font-style: italic;
+}
+
+.get-users-names .input-group {
+  margin: 12px auto;
+  width: 340px;
+}
+.get-users-names span {
+  background-color: #276c77;
+  border: 1px solid #276c77;
+  color: #fff;
+}
+.get-users-names input {
+  background-color: #f4f0bb;
+  border: 1px solid #276c7795;
 }
 .game-numbers-container {
   width: 350px;
@@ -129,7 +147,6 @@ main {
 }
 @media only screen and (max-width: 500px) {
   .select-levels {
-    flex-direction: column;
     width: 87%;
     margin: auto;
   }

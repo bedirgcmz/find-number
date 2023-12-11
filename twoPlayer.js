@@ -10,6 +10,8 @@ const resultMessage = document.querySelector(".result-message");
 const popupBackground = document.querySelector(".popup-background");
 const player1Point = document.querySelector(".player1-point");
 const player2Point = document.querySelector(".player2-point");
+const player1Nickname = document.querySelector(".player1-nickname");
+const player2Nickname = document.querySelector(".player2-nickname");
 
 /** Variables */
 const levelNumbers = [12, 18, 24, 36];
@@ -18,15 +20,46 @@ let selectedLevel;
 let selectedGuessNumber;
 let hiddenNumber;
 let userAnswers = [];
-let firstPlayerName;
-let secondPlayerName;
+let firstPlayerNickname;
+let secondPlayerNickname;
 let firstPlayerPoint;
 let secondPlayerPoint;
 let numberOfClicks;
 
+const setUserNickname = () => {
+  if (player1Nickname.value != "") {
+    document.querySelector(".player1").textContent = player1Nickname.value;
+  }
+  if (player2Nickname.value != "") {
+    document.querySelector(".player2").textContent = player2Nickname.value;
+  }
+};
+
+/** Function that gives trophies to the winning player */
+const whoWon = (pNumber) => {
+  const trophyElement = document.querySelector(`.player${pNumber} .fa-trophy`);
+
+  if (trophyElement) {
+    trophyElement.classList.remove("d-none");
+  } else if (pNumber === 3) {
+    const player1Trophy = document.querySelector(`.player1 .fa-trophy`);
+    const player2Trophy = document.querySelector(`.player2 .fa-trophy`);
+
+    if (player1Trophy && !player1Trophy.classList.contains("d-none")) {
+      player1Trophy.classList.add("d-none");
+    }
+
+    if (player2Trophy && !player2Trophy.classList.contains("d-none")) {
+      player2Trophy.classList.add("d-none");
+    }
+  }
+};
+
 /** This function works when you click on the Game button used to start the game. */
 
 const playGame = () => {
+  setUserNickname();
+  whoWon(3);
   gameNumberContainer.innerHTML = "";
   userAnswers = [];
   selectedLevel = parseInt(levelOptions.value);
@@ -60,6 +93,7 @@ const playGame = () => {
   } else {
     if (levelNumbers.includes(selectedLevel)) {
       hiddenNumber = Math.floor(Math.random() * selectedLevel) + 1;
+      console.log(hiddenNumber);
       for (let index = 1; index <= levelOptions.value; index++) {
         gameNumberContainer.innerHTML += `
             <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
@@ -79,16 +113,17 @@ const userAnswer = (pClickedNumber) => {
   const clickedElement = document.getElementById(`number${pClickedNumber}`);
 
   if (!userAnswers.includes(pClickedNumber)) {
+    //Player 1 area
     if (numberOfClicks % 2 === 1 && firstPlayerPoint > 0) {
-      //Player 1 area
-      //burdan aldimmm
       userAnswers.push(pClickedNumber);
       if (selectedGuessNumber > 0) {
         if (pClickedNumber === hiddenNumber) {
           clickedElement.classList.add("correct");
           Swal.fire({
             title: "Great job!",
-            text: "Today is your lucky day my friend, you won.",
+            text: `Today is your lucky day ${
+              document.querySelector(".player1").textContent
+            }, you won.`,
             color: "#2ec4b6",
             imageUrl: "./images/winn.gif",
             imageWidth: 300,
@@ -96,6 +131,7 @@ const userAnswer = (pClickedNumber) => {
             imageAlt: "Custom image",
           });
           startGameButton.textContent = "Play Again";
+          whoWon(1);
           for (let index = 1; index <= selectedLevel; index++) {
             document.getElementById(`number${index}`).disabled = true;
           }
@@ -108,16 +144,17 @@ const userAnswer = (pClickedNumber) => {
       }
     }
 
+    //Player 2 area
     if (numberOfClicks % 2 === 0 && secondPlayerPoint > 0) {
-      //Player 2 area
-      console.log("ikinci oyuncu");
       userAnswers.push(pClickedNumber);
       if (selectedGuessNumber > 0) {
         if (pClickedNumber === hiddenNumber) {
           clickedElement.classList.add("correct");
           Swal.fire({
             title: "Great job!",
-            text: "Today is your lucky day my friend, you won.",
+            text: `Today is your lucky day  ${
+              document.querySelector(".player2").textContent
+            }, you won.`,
             color: "#2ec4b6",
             imageUrl: "./images/winn.gif",
             imageWidth: 300,
@@ -125,6 +162,7 @@ const userAnswer = (pClickedNumber) => {
             imageAlt: "Custom image",
           });
           startGameButton.textContent = "Play Again";
+          whoWon(2);
           for (let index = 1; index <= selectedLevel; index++) {
             document.getElementById(`number${index}`).disabled = true;
           }
@@ -137,7 +175,8 @@ const userAnswer = (pClickedNumber) => {
       }
     }
 
-    if (firstPlayerPoint == 0 && secondPlayerPoint == 0) {
+    //This place works when no one wins
+    if (firstPlayerPoint == 0 && secondPlayerPoint == 0 && pClickedNumber !== hiddenNumber) {
       clickedElement.classList.add("wrong");
       for (let index = 1; index <= selectedLevel; index++) {
         document.getElementById(`number${index}`).disabled = true;
