@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,6 +10,10 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
     <link rel="stylesheet" href="./style.css" />
     <title>Find Number</title>
@@ -28,13 +29,10 @@
       <section class="game-info">
         <h3 class="text-center mt-3">How to play?</h3>
         <p class="text-center p-2">
-          There are 4 levels for this game. There are
-          different numbers for each level. You can also
+          There are 4 levels for this game. There are different numbers for each level. You can also
           choose your right to guess.
         </p>
-        <div
-          class="level-info p-2 d-flex justify-content-center align-items-center"
-        >
+        <div class="level-info p-2 d-flex justify-content-center align-items-center">
           <ul class="p-4">
             <li class=""><b>Level 1:</b> 12 Number</li>
             <li><b>Level 2:</b> 18 Number</li>
@@ -44,15 +42,10 @@
             <li><b>Level 4:</b> 36 Number</li>
           </ul>
         </div>
-        <div
-          class="select-levels mt-3 d-flex justify-content-between align-items-center"
-        >
+        <div class="select-levels mt-3 d-flex justify-content-between align-items-center">
           <div>
-            <p class="mb-1 p-2">Game level</p>
-            <select
-              class="form-select level-options"
-              aria-label="Default select example"
-            >
+            <h6 class="mb-1 p-2">Game level <i class="fa-solid fa-sliders px-2"></i></h6>
+            <select class="form-select level-options" aria-label="Default select example">
               <option>Please select a level</option>
               <option value="12">Level 1</option>
               <option value="18">Level 2</option>
@@ -61,11 +54,8 @@
             </select>
           </div>
           <div>
-            <p class="mb-1 p-2">Your right to guess</p>
-            <select
-              class="form-select guess-options"
-              aria-label="Default select example"
-            >
+            <h6 class="mb-1 p-2">Your right to guess <i class="fa-solid fa-heart px-2"></i></h6>
+            <select class="form-select guess-options" aria-label="Default select example">
               <option>How many guesses do you want?</option>
               <option value="3">3</option>
               <option value="5">5</option>
@@ -77,26 +67,34 @@
       </section>
       <!-- Game container -->
       <section class="game-container text-center">
-        <button class="start-game-button mb-5">
-          Start Game
-        </button>
-        <div
-          class="row game-numbers-container m-auto"
-        ></div>
+        <button class="start-game-button mb-5">Start Game</button>
+        <div class="player-result-area d-flex justify-content-between align-items-center px-3">
+          <div>
+            <p class="mb-2">Player 1: <span class="player1 fw-bold">Bedir</span></p>
+            <span class="player1-point">5</span>
+          </div>
+          <div>
+            <p class="mb-2">Player 2: <span class="player2 fw-bold">Kadir</span></p>
+            <span class="player2-point">6</span>
+          </div>
+        </div>
+        <div class="row game-numbers-container m-auto mt-3"></div>
         <p class="display-guess-number"></p>
       </section>
     </main>
     <!-- Popup area -->
-    <div class="popup-container">
+    <!-- <div class="popup-container">
       <div class="popup win">
         <h2 class="result-message"></h2>
         <button class="play-again">Paly Again</button>
       </div>
     </div>
-    <div class="popup-background"></div>
+    <div class="popup-background"></div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.0/dist/sweetalert2.all.min.js"></script>
-    <script src="./app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- <script src="./app.js"></script> -->
+    <script src="./twoPlayer.js"></script>
   </body>
 </html>
