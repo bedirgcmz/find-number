@@ -147,7 +147,7 @@ main {
 }
 @media only screen and (max-width: 500px) {
   .select-levels {
-    width: 87%;
+    width: 97%;
     margin: auto;
   }
   .start-game-button {

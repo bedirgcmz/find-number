@@ -38,7 +38,7 @@ const setUserNickname = () => {
 /** Function that gives trophies to the winning player */
 const whoWon = (pNumber) => {
   const trophyElement = document.querySelector(`.player${pNumber} .fa-trophy`);
-
+  console.log(pNumber);
   if (trophyElement) {
     trophyElement.classList.remove("d-none");
   } else if (pNumber === 3) {
@@ -67,10 +67,7 @@ const playGame = () => {
   firstPlayerPoint = selectedGuessNumber / 2;
   secondPlayerPoint = selectedGuessNumber / 2;
   numberOfClicks = 1;
-  if (
-    levelOptions.value == "Please select a level" ||
-    guessOptions.value == "How many guesses do you want?"
-  ) {
+  if (levelOptions.value == "Select Level" || guessOptions.value == "Select Guesses") {
     Swal.fire({
       title: "Are you sure you're ready for the game?!",
       text: "Please select LEVEL and GUESS NUMBER first!",
