@@ -118,9 +118,9 @@ const userAnswer = (pClickedNumber) => {
           clickedElement.classList.add("correct");
           Swal.fire({
             title: "Great job!",
-            text: `Today is your lucky day ${
+            text: `Today is your lucky day "${
               document.querySelector(".player1").textContent
-            }, you won.`,
+            }", you won.`,
             color: "#2ec4b6",
             imageUrl: "./images/winn.gif",
             imageWidth: 300,
@@ -149,9 +149,9 @@ const userAnswer = (pClickedNumber) => {
           clickedElement.classList.add("correct");
           Swal.fire({
             title: "Great job!",
-            text: `Today is your lucky day  ${
-              document.querySelector(".player2").textContent
-            }, you won.`,
+            text: `Today is your lucky day  "${
+              document.querySelector(".player2.fw-bold").textContent
+            }", you won.`,
             color: "#2ec4b6",
             imageUrl: "./images/winn.gif",
             imageWidth: 300,
@@ -200,8 +200,11 @@ const userAnswer = (pClickedNumber) => {
 
 const yourTurn = (pNumberOfClicks, pSelectedGuessNumber, pClickedNumber) => {
   if (pSelectedGuessNumber == 0 || pClickedNumber == hiddenNumber) {
+    console.log("bulundu");
     player2Point.classList.remove("your-turn");
     player1Point.classList.remove("your-turn");
+    player1Point.style.transform = "scale(1)";
+    player2Point.style.transform = "scale(1)";
   } else {
     if (pNumberOfClicks % 2 == 1) {
       player1Point.classList.add("your-turn");

@@ -141,9 +141,11 @@ main {
   background-color: #1579cc;
 }
 .your-turn {
-  font-size: 1rem;
   transform: scale(1);
   transition: all 1s ease-in-out;
+}
+.scale-one {
+  transform: scale(1);
 }
 @media only screen and (max-width: 500px) {
   .select-levels {
