@@ -80,17 +80,19 @@
         <button class="start-game-button mb-5">Start Game</button>
         <div class="player-result-area d-flex justify-content-between align-items-center px-3">
           <div>
-            <p class="mb-2">Player 1: <span class="player1 fw-bold">Lion <i class="fa-solid fa-trophy text-primary fs-3 px-2 d-none"></i></span></p>
+            <p class="mb-2">Player 1: <span class="player1 fw-bold">Lion </span><i id="player1-trophy" class="fa-solid fa-trophy text33-primary main-color fs-3 px-2 none"></i></p>
             <span class="player1-point text-white">-</span>
           </div>
           <div>
-            <p class="mb-2 player2"><i class="fa-solid fa-trophy text-danger fs-3 px-2 d-none"></i> Player 2: <span class="player2 fw-bold">Rose</span></p>
+            <p class="mb-2 player2"><i id="player2-trophy" class="fa-solid fa-trophy text33-danger main-color fs-3 px-2 none"></i> Player 2: <span class="player2 fw-bold">Rose</span></p>
             <span class="player2-point text-white">-</span>
           </div>
         </div>
         <div class="row game-numbers-container m-auto mt-3"></div>
         <p class="display-guess-number"></p>
       </section>
+      <audio id="wrong" src="./sound/wrong.mpeg"></audio>
+      <audio id="correct" src="./sound/correct.mpeg"></audio>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

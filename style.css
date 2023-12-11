@@ -147,6 +147,15 @@ main {
 .scale-one {
   transform: scale(1);
 }
+.main-color {
+  color: #f4f0bb;
+}
+.main-color.blue {
+  color: #1579cc;
+}
+.main-color.red {
+  color: #ff5847;
+}
 @media only screen and (max-width: 500px) {
   .select-levels {
     width: 97%;

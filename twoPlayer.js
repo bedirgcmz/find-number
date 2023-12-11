@@ -12,6 +12,8 @@ const player1Point = document.querySelector(".player1-point");
 const player2Point = document.querySelector(".player2-point");
 const player1Nickname = document.querySelector(".player1-nickname");
 const player2Nickname = document.querySelector(".player2-nickname");
+const trophyElementPly1 = document.getElementById("player1-trophy");
+const trophyElementPly2 = document.getElementById("player2-trophy");
 
 /** Variables */
 const levelNumbers = [12, 18, 24, 36];
@@ -41,18 +43,32 @@ const setUserNickname = () => {
 
 /** Function that gives trophies to the winning player */
 const whoWon = (pNumber) => {
-  const trophyElement = document.querySelector(`.player${pNumber} .fa-trophy`);
-  if (trophyElement) {
-    trophyElement.classList.remove("d-none");
+  if (pNumber === 1) {
+    trophyElementPly1.classList.add("blue");
+  } else if (pNumber === 2) {
+    trophyElementPly2.classList.add("red");
   } else if (pNumber === 3) {
-    const player1Trophy = document.querySelector(`.player1 .fa-trophy`);
-    const player2Trophy = document.querySelector(`.player2 .fa-trophy`);
-    if (player1Trophy && !player1Trophy.classList.contains("d-none")) {
-      player1Trophy.classList.add("d-none");
-    }
-    if (player2Trophy && !player2Trophy.classList.contains("d-none")) {
-      player2Trophy.classList.add("d-none");
-    }
+    trophyElementPly1.classList.remove("blue");
+    trophyElementPly2.classList.remove("red");
+  }
+};
+
+const playCorrectSound = () => {
+  var audioPlayer = document.getElementById("correct");
+  if (audioPlayer && typeof audioPlayer.play === "function") {
+    audioPlayer.play();
+  } else {
+    console.error("Ses dosyasını çalamıyoruz.");
+  }
+};
+
+const playWrongSound = () => {
+  var audioPlayer = document.getElementById("wrong");
+
+  if (audioPlayer && typeof audioPlayer.play === "function") {
+    audioPlayer.play();
+  } else {
+    console.error("Ses dosyasını çalamıyoruz.");
   }
 };
 
@@ -91,6 +107,7 @@ const playGame = () => {
   } else {
     if (levelNumbers.includes(selectedLevel)) {
       hiddenNumber = Math.floor(Math.random() * selectedLevel) + 1;
+      console.log(hiddenNumber);
       for (let index = 1; index <= levelOptions.value; index++) {
         gameNumberContainer.innerHTML += `
             <button id=${`number${index}`} onclick="userAnswer(${index})" class="number">${index}</button>
@@ -116,6 +133,7 @@ const userAnswer = (pClickedNumber) => {
       if (selectedGuessNumber > 0) {
         if (pClickedNumber === hiddenNumber) {
           clickedElement.classList.add("correct");
+          playCorrectSound();
           Swal.fire({
             title: "Great job!",
             text: `Today is your lucky day "${
@@ -134,6 +152,7 @@ const userAnswer = (pClickedNumber) => {
           }
         } else {
           clickedElement.classList.add("wrong-blue");
+          playWrongSound();
         }
         firstPlayerPoint--;
         selectedGuessNumber--;
@@ -147,6 +166,7 @@ const userAnswer = (pClickedNumber) => {
       if (selectedGuessNumber > 0) {
         if (pClickedNumber === hiddenNumber) {
           clickedElement.classList.add("correct");
+          playCorrectSound();
           Swal.fire({
             title: "Great job!",
             text: `Today is your lucky day  "${
@@ -165,6 +185,7 @@ const userAnswer = (pClickedNumber) => {
           }
         } else {
           clickedElement.classList.add("wrong-red");
+          playWrongSound();
         }
         secondPlayerPoint--;
         selectedGuessNumber--;
@@ -175,6 +196,7 @@ const userAnswer = (pClickedNumber) => {
     //This place works when no one wins
     if (firstPlayerPoint == 0 && secondPlayerPoint == 0 && pClickedNumber !== hiddenNumber) {
       clickedElement.classList.add("wrong");
+      playWrongSound();
       for (let index = 1; index <= selectedLevel; index++) {
         document.getElementById(`number${index}`).disabled = true;
       }
